@@ -1,0 +1,100 @@
+SwaggerHub con cuenta de github
+
+SI QUEREMOS UNA LISTA DE ALUMNOS
+
+Peticion:
+
+
+Pet. GET /alumno
+accept: application/json
+
+
+
+--------------------
+Respuesta:
+
+Resp. 200 OK
+
+content-type: application/json
+[
+{"nombre" : "Pepito", "edad" : 25 , "direccion" : "calle larga" },
+{"nombre" : "Angel", "edad" : 31 , "direccion" : "calle lejana" }
+]
+
+
+--------------------
+Respuesta para 'accept: .../xml' si el servidor no lo soporta:
+Resp. 406 
+
+
+======================================
+SI QUEREMOS LOS DATOS DE UN ALUMNO
+
+Peticion:
+
+GET /alumno/{id}
+accept: application/json
+
+------------------
+Respuesta:
+
+200 OK
+
+content-type: application/json
+{"id" : 1, "nombre" : "Pepito", "edad" : 25 , "direccion" : "calle larga" }
+
+
+-----------
+si un id no es valido:
+
+400
+ó
+404 Not found
+
+
+=======================================
+AÑADIR UN ALUMNO (no permitir en el servidor usar PUT, para manejar las id)
+
+Peticion:
+
+POST http:miservicio.com/alumno/
+Host: miservicio.com
+content-type: application/json
+(opcional) accept: application/json
+(linea en blanco)
+{"id" : 1, "nombre" : "Pepito", "edad" : 25 , "direccion" : "calle larga" }
+
+
+Respuesta:
+
+201 Created
+
+content-type: application/json
+
+{"id": ...}
+
+
+mensajes de error:
+415 invalid type of content
+405 method not allowed (si se usa PUT y no queremos que se use)
+400 (si faltan campos a rellenar o tienen un tipo de dato incorrecto)
+
+
+=====================================
+SOLICITAR LISTADO DE ALUMNOS DENTRO DE UN RANGO DE EDAD
+
+GET /alumno?min_edad={}&max_edad={}
+
+
+accept: application/json
+
+
+
+
+
+
+
+
+
+
+
