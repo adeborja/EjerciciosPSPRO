@@ -1,0 +1,53 @@
+ACTUALIZAR
+
+Put /alumno/{id}
+content-type: application/json
+
+body:	{"nombre":"Angel".
+	"apellidos":"D"}
+---------------------------------------------
+RESPUESTAS
+
+Si todo va bien:
+204 No content
+
+posibles errores:
+400 Bad Request
+415 Unsupported media data
+404 Not found
+=============================================
+BORRAR
+
+Delete /alumno/{id}
+---------------------------------------------
+RESPUESTAS
+
+Si todo va bien:
+204 No content
+
+posibles errores:
+404 Not found
+=============================================
+BUSQUEDA FILTRADA
+
+Get /alumno?edad_min={}&edad_max={}
+accept: application/json
+
+---------------------------------------------
+RESPUESTAS
+
+Si todo va bien:
+200 OK
+content-type: application/json
+
+body:{"nombre":"algo","apellidos":"eso", "edad":90}
+
+posibles errores:
+400 Bad Request (parametro no valido)
+406 Cannot respond in requested format
+
+============
+apuntes
+415 va ligado a actualizar
+406 va ligado a accept
+
