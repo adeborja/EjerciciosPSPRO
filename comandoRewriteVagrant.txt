@@ -1,0 +1,7 @@
+
+
+Dentro de vagrant
+
+	sudo a2enmod rewrite
+
+	sudo systemctl restart apache2
